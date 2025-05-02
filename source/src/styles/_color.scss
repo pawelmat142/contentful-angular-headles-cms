@@ -1,0 +1,19 @@
+$primary: #2563eb;
+
+$bg-primary: #EFF6FF;
+
+$textColor: #000;
+
+$ngPrimeBorderColor: #d1d5db;
+
+
+.primary {
+    background-color: $primary;
+}
+.primary-txt {
+    color: $primary;
+}
+
+.bg-primary {
+    background-color: $bg-primary;
+}

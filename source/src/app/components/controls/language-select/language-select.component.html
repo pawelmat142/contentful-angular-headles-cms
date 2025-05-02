@@ -1,0 +1,21 @@
+<p-dropdown 
+    [options]="_options" 
+    [optionLabel]="'label'"
+    [ngModel]="_current$ | async"
+    (onChange)="_onSelect($event)">
+
+    <ng-template let-lang pTemplate="item">
+        <div class="item-content">
+            <img [src]="'assets/flags/' + lang.flag + '.svg'" alt="{{lang.name}}" class="flag-icon" />
+            <span>{{lang.name}}</span>
+        </div>
+    </ng-template>
+    
+    <ng-template let-lang pTemplate="selectedItem">
+        <div class="item-content">
+            <img [src]="'assets/flags/' + lang.flag + '.svg'" alt="{{lang.name}}" class="flag-icon" />
+            <span>{{lang.name}}</span>
+        </div>
+    </ng-template>
+
+</p-dropdown>

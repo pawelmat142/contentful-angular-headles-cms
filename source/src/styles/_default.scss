@@ -1,0 +1,78 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    color: $textColor;
+    line-height: 1.6;
+    letter-spacing: 0.9px;
+    font-family: $family;
+}
+
+body,
+html {
+    min-height: 100%;
+    margin: 0;
+    font-size: 15px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.full-width {
+    width: 100%;
+}
+.full-heigt {
+    height: 100%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+.padding-standard {
+    padding: $padding-standard;
+}
+.padding-standard-top {
+    padding-top: $padding-standard;
+}
+.padding-standard-bottom {
+    padding-bottom: $padding-standard;
+}
+.padding-standard-left {
+    padding-left: $padding-standard;
+}
+.padding-standard-right {
+    padding-right: $padding-standard;
+}
+
+.padding-standard2 {
+    padding: $padding-standard2;
+}
+.padding-standard-top2 {
+    padding-top: $padding-standard2;
+}
+.padding-standard-bottom2 {
+    padding-bottom: $padding-standard2;
+}
+.padding-standard-left2 {
+    padding-left: $padding-standard2;
+}
+.padding-standard-right2 {
+    padding-right: $padding-standard2;
+}
+

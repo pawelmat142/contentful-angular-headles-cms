@@ -1,0 +1,13 @@
+@import 'variables';
+
+.flag-icon {
+    height: $padding-standard2*2;
+    border: 1px solid $ngPrimeBorderColor;
+    border-radius: $ngPrimeBorderRadius;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: $padding-standard
+}
