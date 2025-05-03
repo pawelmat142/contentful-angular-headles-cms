@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidatorFn } from '@angular/forms';
 import { DialogService } from "primeng/dynamicdialog";
-import { PopupComponent } from '../components/popup/popup.component';
 
 export interface DialogData {
   header: string
@@ -34,10 +33,6 @@ export class Dialog extends DialogService {
 
 
   public popup = (data: DialogData) => {
-    return this.open(PopupComponent, {
-        closable: false,
-        header: data.header, 
-        data
-    })
+    // TODO ngprime popup
 }
 }

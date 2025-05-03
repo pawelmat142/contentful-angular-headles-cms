@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Message, MessageService } from 'primeng/api';
+import { MessageService, ToastMessageOptions } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class Toast {
   warn = (detail: string, summary = 'Warn') => this.toast({ severity: 'warn', summary, detail })
   error = (detail: string, summary = 'Error') => this.toast({ severity: 'error', summary, detail })
 
-  private toast(message: Message) {
+  private toast(message: ToastMessageOptions) {
     message.life = this.TIME
     this.messageService.add(message)
   }

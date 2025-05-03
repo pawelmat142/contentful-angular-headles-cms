@@ -39,8 +39,6 @@
               "src/admin"
             ],
             "styles": [
-              "node_modules/primeng/resources/themes/lara-light-indigo/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
               "src/styles/styles.scss"
             ],
@@ -113,8 +111,6 @@
               "src/admin"
             ],
             "styles": [
-              "node_modules/primeng/resources/themes/lara-light-indigo/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
               "src/styles/styles.scss"
             ],

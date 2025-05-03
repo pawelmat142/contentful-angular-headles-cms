@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { ViewWrapperComponent } from '../view-wrapper/view-wrapper.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CalendarModule } from 'primeng/calendar';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormUtil } from '../../utils/form.util';
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -11,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { InputTextarea } from 'primeng/inputtextarea';
 
 @Component({
   selector: 'app-form-view',
@@ -22,7 +22,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
 
     CalendarModule,
-    InputTextareaModule,
+    InputTextarea,
     InputTextModule,
     InputIconModule,
     IconFieldModule,
