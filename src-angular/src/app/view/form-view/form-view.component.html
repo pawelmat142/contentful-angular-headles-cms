@@ -1,0 +1,41 @@
+<app-view-wrapper>
+    <form class="contact-view flex-center" [formGroup]="form" (ngSubmit)="_submit()">
+
+        <h1>{{ 'form.title' | translate }}</h1>
+
+        
+
+
+
+        <div>
+            <label for="date">{{ 'form.date' | translate }}</label>
+            <p-calendar 
+                formControlName="date" 
+                [showIcon]="true" 
+                [disabledDates]="disabledDates"
+            />
+        </div>
+
+        <div>
+            <div class="p-inputgroup">
+                <label for="email">{{ 'form.email' | translate }}</label>
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-search"></i> <!-- Ikona -->
+                </span>
+                <input pInputText id="over_label" formControlName="email" autocomplete="off" />
+            </div>
+        </div>
+        
+
+        <div>
+            <label for="details">{{ 'form.details' | translate }}</label>
+            <textarea pInputTextarea 
+                formControlName="details"
+                [autoResize]="true"
+                rows="2"
+            ></textarea>
+        </div>
+
+
+    </form>
+</app-view-wrapper>

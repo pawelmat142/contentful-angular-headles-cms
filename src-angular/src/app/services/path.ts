@@ -3,4 +3,5 @@ export const PATH = {
     CONTACT: 'contact',
     ITEMS: 'items',
     ADMIN: 'admin',
+    FORM: 'form',
 }

@@ -15,5 +15,8 @@ export const environment = {
         spaceId:'0sq55om0hplw',
         accessToken: 'uZW7ua5jZpbXHNbA2Yn2N5sItLpVCwjGY3IUmztyQYM',
         baseUrl: `https://cdn.contentful.com/spaces/0sq55om0hplw/entries`
+    },
+    email: {
+        serviceId: 'service_c53chct'
     }
 };

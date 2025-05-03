@@ -1,0 +1,24 @@
+<h2 class="text-center margin-standard-bottom4">{{item.title}}</h2>
+
+<div class="item-wrapper">
+
+    <div class="item-main-image">
+        <img [src]="item.mainImage.url" [alt]="item.mainImage.title" />
+    </div>
+
+    <div class="item-content">
+
+        <p-galleria [value]="item.images" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+            <ng-template pTemplate="item" let-item>
+                <p-image [src]="item.url" [alt]="item.title" [preview]="true" width="250" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <img [src]="item.url" [alt]="item.title"/>
+            </ng-template>
+        </p-galleria>
+
+        <p class="item-description" [innerHTML]="item.description"></p>
+
+    </div>
+
+</div>

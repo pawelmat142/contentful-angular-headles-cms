@@ -1,0 +1,21 @@
+@import 'variables';
+
+.item-wrapper {
+    padding: 0 $padding-standard2;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: $padding-standard2;
+}
+
+.item-main-image {
+    // border: 1px solid green;
+    width: 300px;
+    img {
+        width: 100%;
+    }
+}
+
+.item-content {
+    // border: 1px solid red;
+}

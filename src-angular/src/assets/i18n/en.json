@@ -1,0 +1,14 @@
+{
+    "header.home": "Home",
+    "header.contact": "Contact",
+    "header.items": "Items",
+
+    "form.title": "Form",
+    "form.date": "Date",
+    "form.date.placeholder": "Select date",
+    "form.email": "Email",
+    "form.email.placeholder": "Email...",
+    "form.details": "Details",
+    "form.details.placeholder": "Details...",
+    "form.submit": "Send"
+}

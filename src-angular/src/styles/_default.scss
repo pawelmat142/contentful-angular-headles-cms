@@ -41,7 +41,16 @@ ul {
     justify-content: center;
     width: 100%;
 }
+.text-center {
+    text-align: center;
+}
 
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
 
 
 .padding-standard {
@@ -74,5 +83,53 @@ ul {
 }
 .padding-standard-right2 {
     padding-right: $padding-standard2;
+}
+
+.margin-standard {
+    margin: $padding-standard;
+}
+.margin-standard-top {
+    margin-top: $padding-standard;
+}
+.margin-standard-bottom {
+    margin-bottom: $padding-standard;
+}
+.margin-standard-left {
+    margin-left: $padding-standard;
+}
+.margin-standard-right {
+    margin-right: $padding-standard;
+}
+
+.margin-standard2 {
+    margin: $padding-standard2;
+}
+.margin-standard-top2 {
+    margin-top: $padding-standard2;
+}
+.margin-standard-bottom2 {
+    margin-bottom: $padding-standard2;
+}
+.margin-standard-left2 {
+    margin-left: $padding-standard2;
+}
+.margin-standard-right2 {
+    margin-right: $padding-standard2;
+}
+
+.margin-standard4 {
+    margin: $padding-standard4;
+}
+.margin-standard-top4 {
+    margin-top: $padding-standard4;
+}
+.margin-standard-bottom4 {
+    margin-bottom: $padding-standard4;
+}
+.margin-standard-left4 {
+    margin-left: $padding-standard4;
+}
+.margin-standard-right4 {
+    margin-right: $padding-standard4;
 }
 

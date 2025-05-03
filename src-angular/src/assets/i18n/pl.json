@@ -1,0 +1,14 @@
+{
+    "header.home": "Home",
+    "header.contact": "Kontakt",
+    "header.items": "Itemy",
+
+    "form.title": "Formularz",
+    "form.date": "Data",
+    "form.date.placeholder": "Wybierz datae",
+    "form.email": "Email",
+    "form.email.placeholder": "Email...",
+    "form.details": "Szczegóły",
+    "form.details.placeholder": "Szczegóły...",
+    "form.submit": "Wyślij"
+}

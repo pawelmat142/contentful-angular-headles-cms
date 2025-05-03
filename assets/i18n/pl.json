@@ -1,5 +1,5 @@
 {
-    "home": "Home",
-    "contact": "Kontakt",
-    "items": "Itemy"
+    "header.home": "Home",
+    "header.contact": "Kontakt",
+    "header.items": "Itemy"
 }

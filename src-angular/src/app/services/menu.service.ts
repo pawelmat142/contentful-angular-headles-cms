@@ -25,17 +25,23 @@ export class MenuService {
 
   private prepareItems(params?: { findActive?: boolean }): MenuItem[] {
     const result: MenuItem[] = [{
-      label: 'home',
+      label: 'header.home',
       url: PATH.HOME,
     }, {
-      label: 'contact',
+      label: 'header.contact',
       url: PATH.CONTACT,
     }, {
-      label: 'items',
+      label: 'header.items',
+      url: PATH.ITEMS,
+    }, {
+      label: 'form.title',
+      url: PATH.FORM,
+    }, {
+      label: 'Toast',
       command: () => {
         this.toast.info('TODO!')
       },
-    }, {
+    },{
       label: 'Popup',
       command: () => {
         this.dialog.popup({

@@ -4,11 +4,11 @@
         <h1>{{ content.title }}</h1>
 
         <div class="details">
-            <div *ngFor="let paragraph of content.details">{{paragraph}}</div>
+            <div *ngFor="let paragraph of content.details" [innerHTML]="paragraph"></div>
         </div>
 
         <div class="opening-hours">
-            <div *ngFor="let paragraph of content.openingHours">{{paragraph}}</div>
+            <div *ngFor="let paragraph of content.openingHours" [innerHTML]="paragraph"></div>
         </div>
 
     </div>

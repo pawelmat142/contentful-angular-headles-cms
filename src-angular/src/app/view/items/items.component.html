@@ -1,0 +1,13 @@
+<app-view-wrapper>
+    <div *ngIf="items$ | async as items" class="items-view flex-center">
+
+        <h1 class="view-title">{{'header.items' | translate}}</h1>
+
+        <p-carousel class="carousel" [value]="items" [numVisible]="1" [numScroll]="1" [circular]="true">
+            <ng-template pTemplate="item" let-i>
+                <app-item-wrapper [item]="i"></app-item-wrapper>
+            </ng-template>
+        </p-carousel>
+
+    </div>
+</app-view-wrapper>
