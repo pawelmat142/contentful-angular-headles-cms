@@ -7,15 +7,13 @@ import { Router } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    TranslateModule,
-
-    LanguageSelectComponent
-],
-  templateUrl: './header.component.html'
+    selector: 'app-header',
+    imports: [
+        CommonModule,
+        TranslateModule,
+        LanguageSelectComponent
+    ],
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
 

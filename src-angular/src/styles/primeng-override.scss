@@ -1,0 +1,9 @@
+@use 'variables' as *;
+
+.p-iconfield .p-inputtext:not(:first-child) {
+    padding-inline-start: $padding-control-x !important;
+}
+
+.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {
+    padding-inline-end: $padding-control-x;
+}

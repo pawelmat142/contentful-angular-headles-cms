@@ -5,18 +5,19 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { SelectModule } from 'primeng/select';
 
 @Component({
-  selector: 'app-language-select',
-  standalone: true,
-  imports: [
-    DropdownModule,
-    CommonModule,
-    TranslateModule,
-    FormsModule
-  ],
-  templateUrl: './language-select.component.html',
-  styleUrl: './language-select.component.scss',
+    selector: 'app-language-select',
+    imports: [
+        DropdownModule,
+        CommonModule,
+        SelectModule,
+        TranslateModule,
+        FormsModule
+    ],
+    templateUrl: './language-select.component.html',
+    styleUrl: './language-select.component.scss'
 })
 export class LanguageSelectComponent {
 

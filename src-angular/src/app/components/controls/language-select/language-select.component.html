@@ -1,21 +1,21 @@
-<p-dropdown 
+<p-select 
     [options]="_options" 
     [optionLabel]="'label'"
     [ngModel]="_current$ | async"
     (onChange)="_onSelect($event)">
 
-    <ng-template let-lang pTemplate="item">
+    <ng-template #selectedItem let-selectedOption>
         <div class="item-content">
-            <img [src]="'assets/flags/' + lang.flag + '.svg'" alt="{{lang.name}}" class="flag-icon" />
-            <span>{{lang.name}}</span>
-        </div>
-    </ng-template>
-    
-    <ng-template let-lang pTemplate="selectedItem">
-        <div class="item-content">
-            <img [src]="'assets/flags/' + lang.flag + '.svg'" alt="{{lang.name}}" class="flag-icon" />
-            <span>{{lang.name}}</span>
+            <img [src]="'assets/flags/' + selectedOption.flag + '.svg'" alt="{{selectedOption.name}}" class="flag-icon" />
+            <span>{{selectedOption.name}}</span>
         </div>
     </ng-template>
 
-</p-dropdown>
+    <ng-template let-country #item>
+        <div class="item-content">
+            <img [src]="'assets/flags/' + country.flag + '.svg'" alt="{{country.name}}" class="flag-icon" />
+            <span>{{country.name}}</span>
+        </div>
+    </ng-template>
+
+</p-select>

@@ -19,19 +19,16 @@ export interface ItemContent {
 }
 
 @Component({
-  selector: 'app-items',
-  standalone: true,
-  imports: [
-    CommonModule,
-    TranslateModule,
-
-    CarouselModule,
-
-    ViewWrapperComponent,
-    ItemWrapperComponent
-  ],
-  templateUrl: './items.component.html',
-  styleUrl: './items.component.scss'
+    selector: 'app-items',
+    imports: [
+        CommonModule,
+        TranslateModule,
+        CarouselModule,
+        ViewWrapperComponent,
+        ItemWrapperComponent
+    ],
+    templateUrl: './items.component.html',
+    styleUrl: './items.component.scss'
 })
 export class ItemsComponent implements OnInit {
 

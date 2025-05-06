@@ -4,11 +4,13 @@
     "header.items": "Items",
 
     "form.title": "Form",
+    "form.name": "Name",
+    "form.name.placeholder": "Your name...",
     "form.date": "Date",
     "form.date.placeholder": "Select date",
     "form.email": "Email",
     "form.email.placeholder": "Email...",
     "form.details": "Details",
-    "form.details.placeholder": "Details...",
+    "form.details.placeholder": "Details, inspirations...",
     "form.submit": "Send"
 }

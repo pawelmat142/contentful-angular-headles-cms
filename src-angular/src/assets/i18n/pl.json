@@ -4,11 +4,13 @@
     "header.items": "Itemy",
 
     "form.title": "Formularz",
+    "form.name": "Imie",
+    "form.name.placeholder": "Twoje imie...",
     "form.date": "Data",
-    "form.date.placeholder": "Wybierz datae",
+    "form.date.placeholder": "Wybierz datę",
     "form.email": "Email",
     "form.email.placeholder": "Email...",
     "form.details": "Szczegóły",
-    "form.details.placeholder": "Szczegóły...",
+    "form.details.placeholder": "Opis tatuażu i inspiracje...",
     "form.submit": "Wyślij"
 }

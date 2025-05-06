@@ -17,6 +17,8 @@ export const environment = {
         baseUrl: `https://cdn.contentful.com/spaces/0sq55om0hplw/entries`
     },
     email: {
-        serviceId: 'service_c53chct'
+        publicKey: '5D7mRQXcEwq4GN5mK',
+        serviceId: 'service_c11l6qj',
+        templateId: 'template_2ujjrb4'
     }
 };

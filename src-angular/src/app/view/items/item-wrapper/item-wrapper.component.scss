@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 .item-wrapper {
     padding: 0 $padding-standard2;

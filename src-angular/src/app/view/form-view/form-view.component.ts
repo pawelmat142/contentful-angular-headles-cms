@@ -1,62 +1,89 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ViewWrapperComponent } from '../view-wrapper/view-wrapper.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { CalendarModule } from 'primeng/calendar';
 import { FormUtil } from '../../utils/form.util';
-import { InputIconModule } from 'primeng/inputicon';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DatePickerModule } from 'primeng/datepicker';
+import { CommonModule } from '@angular/common';
 import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { InputTextarea } from 'primeng/inputtextarea';
+import { TextareaModule } from 'primeng/textarea';
+import { ButtonModule } from 'primeng/button';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
+import { DateUtil } from '../../utils/date-util';
 
 @Component({
-  selector: 'app-form-view',
   standalone: true,
+  selector: 'app-form-view',
   imports: [
     CommonModule,
     TranslateModule,
     ReactiveFormsModule,
     FormsModule,
-
-    CalendarModule,
-    InputTextarea,
-    InputTextModule,
-    InputIconModule,
+      
+    DatePickerModule,
     IconFieldModule,
-    FloatLabelModule,
+    InputIconModule,
+    InputTextModule,
+    TextareaModule,
+    ButtonModule,
 
     ViewWrapperComponent,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],  // Add this line
   templateUrl: './form-view.component.html',
   styleUrl: './form-view.component.scss'
 })
 export class FormViewComponent {
 
+  private readonly env = environment.email;
+
   form = new FormGroup({
+    name: new FormControl('', Validators.required),
     date: new FormControl(this.getIitialDate(), Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     contact: new FormControl(''),
     details: new FormControl(''),
   })
 
-  // TODO tlumaczenia w kalendarzu
-
-  // TODO wyklucz weekendy
+  // TODO dynamiczne tlumaczenia w kalendarzu
+  // TODO file upload https://primeng.org/fileupload
+  // TODO wyklucz weekendy i zaklepane dni
+  // TODO labelka i kontrolka owrapowac 
+  // TODO errory 
+  // TODO kurtyna 
+  // TODO toast 
   disabledDates: Date[] = []
 
-  _submit() {
-    console.log(this.form.value)
+  _submit(event?: Event) {
     if (this.form.invalid) {
       FormUtil.markForm(this.form)
       return
     }
+    this.send()
     // this.courtine.startCourtine()
     console.log('TODO send')
     // this.courtine.stopCourtine()
+  }
+
+  private async send() {
+    const now = new Date()
+    const templateParams: Record<string, string> = {
+      name: this.form.value.name!,
+      date: DateUtil.formatDDMMYYYY(this.form.value.date!),
+      time: `${now.toLocaleDateString()} - ${now.toLocaleTimeString()}`,
+      email: this.form.value.email!,
+      details: this.form.value.details!
+    }
+    console.log(templateParams)
+    const result = await emailjs.send(
+      this.env.serviceId,
+      this.env.templateId,
+      templateParams,
+      this.env.publicKey
+    )
+    console.log(result)
   }
   
   private getIitialDate(): Date {
@@ -64,6 +91,5 @@ export class FormViewComponent {
     result.setDate(result.getDate() + 5)
     return result
   }
-
 
 }

@@ -1,4 +1,5 @@
-@import 'variables';
+@use 'variables' as *;
+@use 'color' as *;
 
 .flag-icon {
     height: $padding-standard2*2;

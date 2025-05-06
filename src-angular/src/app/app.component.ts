@@ -5,15 +5,13 @@ import { HeaderComponent } from './view/header/header.component';
 import { Translate } from './services/translate.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet, 
-    ToastModule,
-
-    HeaderComponent,
-  ],
-  templateUrl: './app.component.html',
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        ToastModule,
+        HeaderComponent,
+    ],
+    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 

@@ -1,41 +1,40 @@
 <app-view-wrapper>
-    <form class="contact-view flex-center" [formGroup]="form" (ngSubmit)="_submit()">
+    <form class="contact-view flex-center" [formGroup]="form" (ngSubmit)="_submit($event)">
 
         <h1>{{ 'form.title' | translate }}</h1>
 
-        
-
-
+        <p-iconfield>
+            <label for="name">*{{ 'form.name' | translate }}</label>
+            <input pInputText formControlName="name" [placeholder]="'form.name.placeholder' | translate"/>
+            <p-inputicon class="pi pi-user" />
+        </p-iconfield>
 
         <div>
-            <label for="date">{{ 'form.date' | translate }}</label>
-            <p-calendar 
-                formControlName="date" 
-                [showIcon]="true" 
-                [disabledDates]="disabledDates"
+            <label for="date">*{{ 'form.date' | translate }}</label>
+            <p-datepicker formControlName="date" 
+            [iconDisplay]="'input'" 
+            [showIcon]="true" 
+            [placeholder]="'form.date.placeholder' | translate"
             />
         </div>
-
-        <div>
-            <div class="p-inputgroup">
-                <label for="email">{{ 'form.email' | translate }}</label>
-                <span class="p-inputgroup-addon">
-                    <i class="pi pi-search"></i> <!-- Ikona -->
-                </span>
-                <input pInputText id="over_label" formControlName="email" autocomplete="off" />
-            </div>
-        </div>
         
+        <p-iconfield>
+            <label for="email">*{{ 'form.email' | translate }}</label>
+            <input pInputText formControlName="email" [placeholder]="'form.email.placeholder' | translate"/>
+            <p-inputicon class="pi pi-envelope" />
+        </p-iconfield>
 
         <div>
             <label for="details">{{ 'form.details' | translate }}</label>
-            <textarea pInputTextarea 
+            <textarea pTextarea 
                 formControlName="details"
-                [autoResize]="true"
-                rows="2"
+                rows="5"cols="30" 
+                [autoResize]="true" 
+                [placeholder]="'form.details.placeholder' | translate"
             ></textarea>
         </div>
 
+        <p-button [label]="'form.submit' | translate" severity="info" type="submit" [disabled]="form.invalid" />
 
     </form>
 </app-view-wrapper>

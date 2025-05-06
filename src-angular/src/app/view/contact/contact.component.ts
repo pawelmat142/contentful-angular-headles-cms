@@ -15,15 +15,13 @@ interface ContactViewContent {
 }
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [
-    CommonModule,
-
-    ViewWrapperComponent,
-  ],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+    selector: 'app-contact',
+    imports: [
+        CommonModule,
+        ViewWrapperComponent,
+    ],
+    templateUrl: './contact.component.html',
+    styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
 

@@ -1,4 +1,3 @@
-@import 'default';
-@import 'main';
-
-@import 'primeng-override';
+@use 'default' as *;
+@use 'main' as *;
+@use 'primeng-override' as *;
