@@ -1,0 +1,48 @@
+<app-view-wrapper>
+
+    <h1 class="text-center full-width padding-standard-top2 padding-standard-bottom2">{{ 'form.title' | translate }}</h1>
+    
+    <div class="form-spinner" *ngIf="_spinner">
+        <p-progress-spinner strokeWidth="8" fill="transparent" animationDuration=".5s" [style]="{ width: '200px', height: '200px' }" />
+    </div>
+    
+    <form class="form-wrapper" [formGroup]="form" (ngSubmit)="_submit($event)" *ngIf="!_spinner">
+
+        <app-control-wrapper label="form.name" [required]="true">
+            <p-iconfield>
+                <input pInputText formControlName="name" [placeholder]="'form.name.placeholder' | translate"/>
+                <p-inputicon class="pi pi-user" />
+            </p-iconfield>
+        </app-control-wrapper>
+
+        <app-control-wrapper label="form.date" [required]="true">
+            <p-datepicker formControlName="date"
+                [disabledDates]="(disabledDates$ | async) || []"
+                [iconDisplay]="'input'" 
+                [showIcon]="true" 
+                [placeholder]="'form.date.placeholder' | translate"
+            />
+        </app-control-wrapper>
+        
+        <app-control-wrapper label="form.email" [required]="true">
+            <p-iconfield>
+                <input pInputText formControlName="email" [placeholder]="'form.email.placeholder' | translate"/>
+                <p-inputicon class="pi pi-envelope" />
+            </p-iconfield>
+        </app-control-wrapper>
+        
+        <app-control-wrapper label="form.details" size="big">
+            <textarea pTextarea 
+                formControlName="details"
+                rows="5"cols="30" 
+                [autoResize]="true" 
+                [placeholder]="'form.details.placeholder' | translate"
+            ></textarea>
+        </app-control-wrapper>
+
+        <app-files-upload (filesUpdate)="onFilesUpdate($event)"></app-files-upload>
+
+        <p-button [label]="'form.submit' | translate" severity="info" type="submit" [disabled]="form.invalid" />
+
+    </form>
+</app-view-wrapper>

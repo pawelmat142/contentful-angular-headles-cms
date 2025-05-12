@@ -1,0 +1,15 @@
+<app-view-wrapper>
+    <div *ngIf="content$ | async as content" class="contact-view flex-center">
+
+        <h1>{{ content.title }}</h1>
+
+        <div class="details">
+            <div *ngFor="let paragraph of content.details" [innerHTML]="paragraph"></div>
+        </div>
+
+        <div class="opening-hours">
+            <div *ngFor="let paragraph of content.openingHours" [innerHTML]="paragraph"></div>
+        </div>
+
+    </div>
+</app-view-wrapper>

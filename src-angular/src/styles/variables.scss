@@ -1,0 +1,13 @@
+@use 'color' as *;
+
+$family: 'Montserrat', sans-serif;
+
+$padding-standard: 8px;
+$padding-standard2: 2*$padding-standard;
+$padding-standard3: 3*$padding-standard;
+$padding-standard4: 4*$padding-standard;
+
+$padding-control-x: var(--p-inputtext-padding-x);
+
+$primeNgBorderRadius: 6px;
+

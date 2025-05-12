@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+.file-upload-files,
+.file-upload-empty {
+    min-width: 500px;
+}
+
+.file-upload-files {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-upload-file {
+    display: flex;
+    gap: $padding-standard2;
+    padding-top: $padding-standard;
+    &:not(:last-child) {
+        padding-bottom: $padding-standard;
+        border-bottom: 1px solid $primeNgBorderColor;
+    }
+
+    p-button {
+        margin-left: auto;
+    }
+}
+
+.file-upload-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    > div {
+        display: flex;
+        gap: $padding-standard2;
+    }
+
+}
+
+.file-upload-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $padding-standard2;
+    i {
+        padding: 2rem;
+        border-radius: 50%;
+        border: 2px solid $primeNgBorderColor;
+        font-size: 2.25rem;
+    }
+}

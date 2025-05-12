@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+:host {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.items-view {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 128px;
+    padding: 0 $padding-standard4;
+}
+
+.view-title {
+    margin-bottom: $padding-standard4;
+}
+
+.carousel {
+    width: 100%;
+}

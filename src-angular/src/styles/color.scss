@@ -1,0 +1,36 @@
+$primary: #2563eb;
+
+$bg-primary: #EFF6FF;
+
+$textColor: #000;
+
+$control-label: var(--p-surface-500);
+
+$primeNgBorderColor: var(--p-surface-300);
+
+$errorColor: var(--p-red-600);
+
+.primary {
+    background-color: $primary;
+}
+.primary-txt {
+    color: $primary;
+}
+
+.control-label {
+    background-color: $control-label;
+}
+.control-label-txt {
+    color: $control-label;
+}
+
+.bg-primary {
+    background-color: $bg-primary;
+}
+
+.error {
+    background-color: $errorColor;
+}
+.error-txt {
+    color: $errorColor;
+}

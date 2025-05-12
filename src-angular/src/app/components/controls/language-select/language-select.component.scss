@@ -1,0 +1,14 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+.flag-icon {
+    height: $padding-standard2*2;
+    border: 1px solid $primeNgBorderColor;
+    border-radius: $primeNgBorderRadius;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: $padding-standard
+}

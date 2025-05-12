@@ -1,0 +1,150 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    line-height: 1.6;
+    letter-spacing: 0.9px;
+    font-family: $family;
+}
+
+body,
+html {
+    min-height: 100%;
+    margin: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.full-width {
+    width: 100%;
+}
+.full-heigt {
+    height: 100%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+
+.fit-img {
+    overflow: hidden;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+}
+
+
+.padding-standard {
+    padding: $padding-standard;
+}
+.padding-standard-top {
+    padding-top: $padding-standard;
+}
+.padding-standard-bottom {
+    padding-bottom: $padding-standard;
+}
+.padding-standard-left {
+    padding-left: $padding-standard;
+}
+.padding-standard-right {
+    padding-right: $padding-standard;
+}
+
+.padding-standard2 {
+    padding: $padding-standard2;
+}
+.padding-standard-top2 {
+    padding-top: $padding-standard2;
+}
+.padding-standard-bottom2 {
+    padding-bottom: $padding-standard2;
+}
+.padding-standard-left2 {
+    padding-left: $padding-standard2;
+}
+.padding-standard-right2 {
+    padding-right: $padding-standard2;
+}
+
+.margin-standard {
+    margin: $padding-standard;
+}
+.margin-standard-top {
+    margin-top: $padding-standard;
+}
+.margin-standard-bottom {
+    margin-bottom: $padding-standard;
+}
+.margin-standard-left {
+    margin-left: $padding-standard;
+}
+.margin-standard-right {
+    margin-right: $padding-standard;
+}
+
+.margin-standard2 {
+    margin: $padding-standard2;
+}
+.margin-standard-top2 {
+    margin-top: $padding-standard2;
+}
+.margin-standard-bottom2 {
+    margin-bottom: $padding-standard2;
+}
+.margin-standard-left2 {
+    margin-left: $padding-standard2;
+}
+.margin-standard-right2 {
+    margin-right: $padding-standard2;
+}
+
+.margin-standard4 {
+    margin: $padding-standard4;
+}
+.margin-standard-top4 {
+    margin-top: $padding-standard4;
+}
+.margin-standard-bottom4 {
+    margin-bottom: $padding-standard4;
+}
+.margin-standard-left4 {
+    margin-left: $padding-standard4;
+}
+.margin-standard-right4 {
+    margin-right: $padding-standard4;
+}
+

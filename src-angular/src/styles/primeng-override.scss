@@ -1,0 +1,20 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+.p-iconfield .p-inputtext:not(:first-child) {
+    padding-inline-start: $padding-control-x !important;
+}
+
+.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {
+    padding-inline-end: $padding-control-x;
+}
+
+.control > .p-component {
+    width: 100%;
+}
+
+body {
+    .p-fileupload-advanced {
+        border-color: $primeNgBorderColor;
+    }
+}

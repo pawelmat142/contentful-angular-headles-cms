@@ -1,0 +1,22 @@
+<p-select 
+    [@fadeIn]
+    [options]="_options" 
+    [optionLabel]="'label'"
+    [ngModel]="_current$ | async"
+    (onChange)="_onSelect($event)">
+
+    <ng-template #selectedItem let-selectedOption>
+        <div class="item-content">
+            <img [src]="'assets/flags/' + selectedOption.flag + '.svg'" alt="{{selectedOption.name}}" class="flag-icon" />
+            <span>{{selectedOption.name}}</span>
+        </div>
+    </ng-template>
+
+    <ng-template let-country #item>
+        <div class="item-content">
+            <img [src]="'assets/flags/' + country.flag + '.svg'" alt="{{country.name}}" class="flag-icon" />
+            <span>{{country.name}}</span>
+        </div>
+    </ng-template>
+
+</p-select>

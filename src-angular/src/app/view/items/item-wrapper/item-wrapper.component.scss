@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+.item-wrapper {
+    padding: 0 $padding-standard2;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: $padding-standard2;
+}
+
+.fit-img.main {
+    width: 100%;
+    max-height: 400px;
+}
+.fit-img.gallery {
+    width: 100px;
+    height: 100px;
+}
+.fit-img.gallery.head {
+    width: 400px;
+    height: 300px;
+}

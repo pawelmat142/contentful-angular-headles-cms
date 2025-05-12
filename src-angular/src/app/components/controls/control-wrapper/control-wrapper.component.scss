@@ -1,0 +1,16 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+.control-wrapper {
+    &.standard {
+        width: 255px;
+    }
+    &.big {
+        width: 540px;
+    }
+}
+
+.error-txt {
+    max-width: 100%;
+    white-space: nowrap;
+}

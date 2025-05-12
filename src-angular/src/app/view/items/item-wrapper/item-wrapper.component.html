@@ -1,0 +1,30 @@
+<h2 class="text-center margin-standard-bottom4">{{item.title}}</h2>
+
+<div class="item-wrapper">
+
+    <div class="fit-img main">
+        <img [src]="item.mainImage.url" [alt]="item.mainImage.title" />
+    </div>
+
+    <div class="item-content">
+
+        <p-galleria [value]="item.images" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+            <ng-template pTemplate="item" let-item>
+
+                <div class="fit-img gallery head">
+                    <img [src]="item.url" [alt]="item.title"/>
+                </div>
+
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="fit-img gallery">
+                    <img [src]="item.url" [alt]="item.title"/>
+                </div>
+            </ng-template>
+        </p-galleria>
+
+        <p class="item-description" [innerHTML]="item.description"></p>
+
+    </div>
+
+</div>

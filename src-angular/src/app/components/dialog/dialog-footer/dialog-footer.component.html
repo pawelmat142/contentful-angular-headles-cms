@@ -1,0 +1,12 @@
+
+<ng-container *ngFor="let btn of (config.data?.buttons || [])">
+    <button 
+        pButton
+        [severity]="btn.severity"
+        [label]="btn.label"
+        [class]="btn.class"
+        [raised]="true"
+        size="small"
+        (click)="onButtonClick(btn)">
+    </button>
+</ng-container>

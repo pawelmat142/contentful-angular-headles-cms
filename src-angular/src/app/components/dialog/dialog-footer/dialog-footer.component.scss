@@ -1,0 +1,8 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+:host {
+    display: flex;
+    justify-content: flex-end;
+    gap: $padding-standard;
+}

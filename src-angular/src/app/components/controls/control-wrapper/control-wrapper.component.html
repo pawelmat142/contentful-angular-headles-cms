@@ -1,0 +1,12 @@
+<div class="control-wrapper" [ngClass]="size">
+
+    <div class="control-label-txt" *ngIf="label"><span *ngIf="required">*</span>{{ label | translate }}</div>
+
+    <div class="control">
+        <ng-content [style.width]="sizes[size]+'px'"></ng-content>
+    </div>
+
+    <ng-container *ngIf="ngControl?.touched">
+        <small class="error-txt" *ngFor="let error of (ngControl?.errors | keyvalue)">{{ 'validation.' + error.key | translate }}</small>
+    </ng-container>
+</div>

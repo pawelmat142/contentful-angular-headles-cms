@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="container">
+
+        <nav class="header-left padding-standard-left2" [@fadeIn]>
+            <ul>
+                <li *ngFor="let item of (menuItems$ | async)">
+                    <a (click)="menuItemClick($event, item)" [class]="item.styleClass">{{ item.label! | translate }}</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <app-language-select></app-language-select>
+        </div>
+
+    </div>
+</header>
