@@ -1,5 +1,42 @@
 {
     "header.home": "Home",
     "header.contact": "Kontakt",
-    "header.items": "Itemy"
+    "header.items": "Itemy",
+
+    "form.title": "Formularz",
+    "form.name": "Imie",
+    "form.name.placeholder": "Twoje imie...",
+    "form.date": "Data",
+    "form.date.placeholder": "Wybierz datę",
+    "form.email": "Email",
+    "form.email.placeholder": "Email...",
+    "form.email.error": "Bład wysyłania maila",
+    "form.email.success": "Wiadomość wysłana pomyślnie",
+    "form.details": "Szczegóły",
+    "form.details.placeholder": "Opis tatuażu i inspiracje...",
+    "form.submit": "Wyślij",
+    "form.dragAndDrop": "Przeciągnij i upuść pliki tutaj, aby je przesłać.",
+    "form.attachments": "Załączniki",
+    "form.attachments.max": "Możesz przesłać maksymalnie 5 plików.",
+    "form.upload.error": "Error uploading file",
+
+    "validation.required": "Pole jest wymagane",
+    "validation.email": "Nieprawidłowy format adresu e-mail",
+
+    "CALENDAR": {
+        "dayNames": ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
+        "dayNamesShort": ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
+        "dayNamesMin": ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
+        "monthNames": ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+        "monthNamesShort": ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"],
+        "today": "Dziś",
+        "weekHeader": "Tydzień"
+    },
+
+    "popup.header": "Popup",
+    "popup.example": "Przykładowy popup",
+    "popup.confirm": "Akceptuj",
+    "popup.cancel": "Anuluj",
+    "popup.canceled": "Anulowano",
+    "popup.confirmed": "Akceptowano"
 }

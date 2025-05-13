@@ -5,6 +5,7 @@ import { ContentfulAssetPublishResponse, ContentfulAssetResponse, ContentfulRequ
 import { Translate } from './translate.service';
 import { environment } from '../environments/environment.prod';
 import { TranslateService } from '@ngx-translate/core';
+import { ContentUtil } from '../utils/content.util';
 
 @Injectable({
   providedIn: 'root'
@@ -45,75 +46,81 @@ export class ContentService {
     }), shareReplay(1))
   }
 
+
+
   public uploadFiles$(files: File[], name: string): Observable<{ fileName: string; url?: string; error?: string }[]> {
-    return forkJoin(files.map(file => this.uploadFile$(file, name).pipe(
-      map(url => ({
-        fileName: file.name,
-        url
-      })),
-      catchError(error => {
-        console.error(error);
-        return of({
-          fileName: file.name,
-          error: `${this.translateService.instant('form.upload.error')} ${file.name}`
-        });
-      })
-    )))
+    return this.getToken$().pipe(
+      switchMap(cmaToken => forkJoin(files.map(file => this.uploadFile$(file, cmaToken, name)))),
+    )
   }
 
-  public uploadFile$(file: File, filename?: string): Observable<string> {
+  private getToken$(): Observable<string> {
+    return this.getEntries$({ contentType: 'cmaToken' }).pipe(map(result => ContentUtil.extractToken(result)))
+  }
+
+  public uploadFile$(file: File, cmaToken: string, filename?: string): Observable<{ fileName: string; url?: string; error?: string }> {
     if (filename) {
       file = new File([file], `${filename}-${this.prepareUniqueId()}`, {
         type: file.type
       })
     }
-    return this.upload(file).pipe(
-      switchMap(uploadResponse => this.createAsset(file, uploadResponse)),
-      switchMap(assetResponse => this.processAsset(assetResponse)),
-      switchMap(assetResponse => this.fetchAsset(assetResponse)),
-      switchMap(fetchAssetResponse => this.publishAsset(fetchAssetResponse)),
-      map(publishResponse => this.prepareAssetUrl(publishResponse))
+    return this.upload(file, cmaToken).pipe(
+      switchMap(uploadResponse => this.createAsset(file, uploadResponse, cmaToken)),
+      switchMap(assetResponse => this.processAsset(assetResponse, cmaToken)),
+      switchMap(assetResponse => this.fetchAsset(assetResponse, cmaToken)),
+      switchMap(fetchAssetResponse => this.publishAsset(fetchAssetResponse, cmaToken)),
+      map(publishResponse => this.prepareAssetUrl(publishResponse)),
+      map(url => ({
+          fileName: file.name,
+          url
+      })),
+      catchError(error => {
+        return of({
+          fileName: file.name,
+          error: `${this.translateService.instant('form.upload.error')} ${file.name}`
+        });
+      })
     )
   }
 
-  private upload(file: File): Observable<ContentfulUploadResponse> {
+  private upload(file: File, cmaToken: string): Observable<ContentfulUploadResponse> {
     return this.httpClient.post<ContentfulUploadResponse>(this.uploadUrl, file, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${environment.api.cmaToken}`,
+        Authorization: `Bearer ${cmaToken}`,
         'Content-Type': 'application/octet-stream',
       })
     })
   }
 
-  private createAsset(file: File, uploadResponse: ContentfulUploadResponse): Observable<ContentfulAssetResponse> {
+  private createAsset(file: File, uploadResponse: ContentfulUploadResponse, cmaToken: string): Observable<ContentfulAssetResponse> {
     return this.httpClient.post<ContentfulAssetResponse>(`${this.baseUrl}/assets`, this.prepareAssetPayload(file, uploadResponse), {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${environment.api.cmaToken}`,
+        Authorization: `Bearer ${cmaToken}`,
         'Content-Type': 'application/vnd.contentful.management.v1+json',
       }),
     })
   }
 
-  private processAsset(assetResponse: ContentfulAssetResponse): Observable<ContentfulAssetResponse> {
+  private processAsset(assetResponse: ContentfulAssetResponse, cmaToken: string): Observable<ContentfulAssetResponse> {
     return this.httpClient.put<null>(`${this.baseUrl}/assets/${assetResponse.sys.id}/files/en-US/process`, null, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${environment.api.cmaToken}`,
+        Authorization: `Bearer ${cmaToken}`,
       }),
     }).pipe(switchMap(() => timer(this.processAssetDelay).pipe(map(() => (assetResponse)))))
   }
 
-  private fetchAsset(assetResponse: ContentfulAssetResponse): Observable<ContentfulAssetResponse> {
+  private fetchAsset(assetResponse: ContentfulAssetResponse, cmaToken: string): Observable<ContentfulAssetResponse> {
     return this.httpClient.get<ContentfulAssetResponse>(`${this.baseUrl}/assets/${assetResponse.sys.id}`, {
       headers: new HttpHeaders({
-        Authorization: `Bearer ${environment.api.cmaToken}`,
+        Authorization: `Bearer ${cmaToken}`,
       }),
     })
   }
 
-  private publishAsset(assetResponse: ContentfulAssetResponse): Observable<ContentfulAssetPublishResponse> {
+  private publishAsset(assetResponse: ContentfulAssetResponse, cmaToken: string): Observable<ContentfulAssetPublishResponse> {
     return this.httpClient.put<ContentfulAssetPublishResponse>(`${this.baseUrl}/assets/${assetResponse.sys.id}/published`, {}, { 
       headers: new HttpHeaders({
-        Authorization: `Bearer ${environment.api.cmaToken}`,
+        Authorization: `Bearer ${cmaToken}`,
         'X-Contentful-Version': `${assetResponse.sys.version}`,
       })
     })

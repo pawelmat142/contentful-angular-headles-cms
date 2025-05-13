@@ -1,6 +1,6 @@
 // MY
 export interface ContentfulRequest {
-    contentType?: 'contact' | 'item' | 'schedule',
+    contentType?: 'cmaToken' | 'contact' | 'item' | 'schedule',
     language?: string
 }
 

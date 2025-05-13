@@ -1,5 +1,42 @@
 {
     "header.home": "Home",
     "header.contact": "Contact",
-    "header.items": "Items"
+    "header.items": "Items",
+
+    "form.title": "Form",
+    "form.name": "Name",
+    "form.name.placeholder": "Your name...",
+    "form.date": "Date",
+    "form.date.placeholder": "Select date",
+    "form.email": "Email",
+    "form.email.placeholder": "Email...",
+    "form.email.error": "Email sending error",
+    "form.email.success": "Message sent successfully",
+    "form.details": "Details",
+    "form.details.placeholder": "Details, inspirations...",
+    "form.submit": "Send",
+    "form.dragAndDrop": "Drag and drop files here to upload.",
+    "form.attachments": "Attachments",
+    "form.attachments.max": "You can only upload up to 5 files.",
+    "form.upload.error": "Błąd podczas przesyłania pliku",
+
+    "validation.required": "This field is required",
+    "validation.email": "Invalid email format",
+
+    "CALENDAR": {
+        "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "dayNamesMin": ["Su","Mo","Tu","We","Th","Fr","Sa"],
+        "monthNames": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+        "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "today": "Today",
+        "weekHeader": "Wk"
+    },
+
+    "popup.header": "Popup",
+    "popup.example": "Example popup",
+    "popup.confirm": "Confirm",
+    "popup.cancel": "Cancel",
+    "popup.canceled": "Cancelled",
+    "popup.confirmed": "Confirmed"
 }

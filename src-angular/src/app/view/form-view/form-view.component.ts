@@ -92,7 +92,7 @@ export class FormViewComponent {
         this._spinner = false
       },
       error: (error) => {
-        console.error(error)
+        console.log(error)
         this.toast.error(this.translate.instant('form.email.error'))
         this._spinner = false
       }
@@ -108,7 +108,9 @@ export class FormViewComponent {
           const errors = uploads.filter(upload => upload.error).map(upload => upload.error!)
           if (errors.length) {
             this._spinner = false
-            errors.forEach(error => this.toast.error(error))
+            errors.forEach(error => {
+              this.toast.error(error)
+            })
             return false
           } else {
             return uploads.filter(upload => upload.url).map(upload => upload.url!)

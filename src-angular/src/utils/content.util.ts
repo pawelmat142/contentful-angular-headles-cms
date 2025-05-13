@@ -2,6 +2,14 @@ import { ContentfulField, ContentfulRespone, ContentImage } from "../model/conte
 
 export abstract class ContentUtil {
 
+    public static extractToken(data: ContentfulRespone): string {
+        if (data.items && data.items.length > 0) {
+            return (data.items[0].fields['token'] as string) 
+        }
+        return '';
+    }
+
+
     public static getParagraphs(field: ContentfulField): ContentfulField[] {
         if (!field.content) {
             throw new Error('Missing content')
