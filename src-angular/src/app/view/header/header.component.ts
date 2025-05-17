@@ -1,47 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuItem, MenuItemCommandEvent } from 'primeng/api';
+import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageSelectComponent } from '../../components/controls/language-select/language-select.component';
-import { Router } from '@angular/router';
 import { MenuService } from '../../../services/menu.service';
 import { Animation } from '../../../utils/animation';
+import { ButtonModule } from 'primeng/button';
+import { DrawerModule } from 'primeng/drawer';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { PanelMenu } from 'primeng/panelmenu';
 
 @Component({
     selector: 'app-header',
     imports: [
-        CommonModule,
-        TranslateModule,
-        LanguageSelectComponent
+      CommonModule,
+      ButtonModule,
+      TranslateModule,
+      LanguageSelectComponent,
+      DrawerModule,
+      PanelMenuModule,
+      PanelMenu
     ],
     templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
     animations: [ Animation.fadeIn(200) ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
-    private router: Router,
     private readonly menuService: MenuService
-  ) {}
+  ) {
+    this.menuService.mobileMenuVisible$.subscribe(mobileMenuVisible => {
+      this.mobileMenuVisible = mobileMenuVisible
+    })
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.menuService.updateItems()
+    this.menuService.items$.subscribe(menuItems => {
+      this.menuItems = menuItems
     })
   }
-
-  menuItems$ = this.menuService.items$.asObservable()
-
-  async menuItemClick(event: Event, item: MenuItem) {
-    if (item.command) {
-      item.command(event as MenuItemCommandEvent);
-    }
-    if (typeof item.url === 'string') {
-      const success = await this.router.navigate([`/${item.url}`])
-      if (success) {
-        this.menuService.updateItems()
-      }
-    }
+  
+  menuItems: MenuItem[] = []
+  
+  menuItemClick(event: Event, item: MenuItem) {
+    this.menuService.itemClick(event, item)
   }
 
+  mobileMenuVisible = false
+
+  showMenu() {
+    this.mobileMenuVisible = true
+  }
+  
+  closeMenu() {
+    this.mobileMenuVisible = false
+  }
 }

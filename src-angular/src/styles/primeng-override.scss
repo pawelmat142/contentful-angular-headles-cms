@@ -17,4 +17,14 @@ body {
     .p-fileupload-advanced {
         border-color: $primeNgBorderColor;
     }
+    .p-panelmenu-panel {
+        padding: 0;
+        .active.p-component.p-panelmenu-header {
+            background-color: $bg-primary;
+            .p-panelmenu-submenu-icon,
+            .p-panelmenu-header-content {
+                color: $primary;
+            }
+        }
+    }
 }

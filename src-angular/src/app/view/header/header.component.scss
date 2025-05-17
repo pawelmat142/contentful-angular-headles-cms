@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'color' as *;
+
+.header {
+    width: 100%;
+    background-color: $bg-primary;
+    padding: $padding-standard2;
+    border-bottom: 1px solid $primary;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header-left {
+        padding-left: $padding-standard2;
+        ul {
+            display: flex;
+            align-items: center;
+            gap: $padding-standard2;
+            height: 100%;
+        }
+        
+        .active {
+            color: $primary;
+        }
+        
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            
+        }
+    }
+    
+    .header-right {
+        padding-right: $padding-standard2;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+.menu-mobile {
+    display: none;
+}
+
+@media (max-width: $md) {
+    
+    .menu-desktop {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: unset;
+    }
+
+    .header {
+        padding: $padding-standard $padding-standard2;
+    }
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: $padding-standard;
+    padding: $padding-standard;
+
+    nav {
+        i {
+            font-size: 1.4rem;
+        }
+
+        a {
+            padding: $padding-standard2;
+            display: flex;
+            gap: $padding-standard;
+            align-items: center;
+            border-radius: $tileBorderRadius;
+
+            &.active {
+                background-color: $bg-primary;
+                color: $primary;
+            }
+        }
+    }
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: $primary;
+    }
+    margin-bottom: $padding-standard2;
+}

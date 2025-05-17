@@ -1,17 +1,39 @@
 <header class="header">
     <div class="container">
 
-        <nav class="header-left padding-standard-left2" [@fadeIn]>
+        <nav class="header-left padding-standard-left2 menu-desktop" [@fadeIn]>
             <ul>
-                <li *ngFor="let item of (menuItems$ | async)">
-                    <a (click)="menuItemClick($event, item)" [class]="item.styleClass">{{ item.label! | translate }}</a>
+                <li *ngFor="let item of menuItems" [class]="item.styleClass">
+                    <a (click)="menuItemClick($event, item)">{{ item.label! }}</a>
                 </li>
             </ul>
         </nav>
 
         <div class="header-right">
-            <app-language-select></app-language-select>
+            <app-language-select class="menu-desktop"></app-language-select>
+        </div>
+
+        <div class="menu-mobile">
+            <p-button (click)="showMenu()" icon="pi pi-bars" severity="info" size="small"/>
         </div>
 
     </div>
 </header>
+
+<p-drawer #drawerRef [(visible)]="mobileMenuVisible" position="right">
+    <ng-template #headless>
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    LOGO
+                </div>
+                <div>
+                    <p-button type="button" (click)="closeMenu()" icon="pi pi-times" rounded="true" outlined="true" styleClass="h-8 w-8"></p-button>
+                </div>
+            </div>
+
+            <p-panelmenu [model]="menuItems"/>
+
+        </div>
+    </ng-template>
+</p-drawer>

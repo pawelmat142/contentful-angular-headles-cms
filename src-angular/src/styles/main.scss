@@ -13,43 +13,7 @@
     flex-direction: column;
 }
 
-.header {
-    width: 100%;
-    background-color: $bg-primary;
-    padding: $padding-standard2;
-    border-bottom: 1px solid $primary;
 
-    .container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .header-left {
-        padding-left: $padding-standard2;
-        ul {
-            display: flex;
-            align-items: center;
-            gap: $padding-standard2;
-            height: 100%;
-        }
-        
-        a {
-            text-decoration: none;
-            cursor: pointer;
-            
-            &.active {
-                color: $primary;
-            }
-        }
-    }
-    
-    .header-right {
-        padding-right: $padding-standard2;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-}
 
 .contact-view {
     flex-direction: column;
