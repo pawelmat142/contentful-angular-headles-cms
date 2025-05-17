@@ -1,6 +1,12 @@
 @use 'variables' as *;
 @use 'color' as *;
 
+:host {
+    @media (max-width: $md) {
+        width: 100%;
+    }
+}
+
 .control-wrapper {
     &.standard {
         width: 255px;
@@ -10,7 +16,17 @@
     }
 }
 
+@media (max-width: $md) {
+    .control-wrapper {
+        &.big,
+        &.standard {
+            width: 100%;
+        }
+    }
+}
+
 .error-txt {
     max-width: 100%;
+    white-space: nowrap;
     white-space: nowrap;
 }

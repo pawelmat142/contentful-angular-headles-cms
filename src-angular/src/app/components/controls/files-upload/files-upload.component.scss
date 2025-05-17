@@ -3,7 +3,15 @@
 
 .file-upload-files,
 .file-upload-empty {
-    min-width: 500px;
+    width: 500px;
+    max-width: 100%;
+}
+
+@media (max-width: $md) {
+    .file-upload-files,
+    .file-upload-empty {
+        width: 100%;
+    }
 }
 
 .file-upload-files {
